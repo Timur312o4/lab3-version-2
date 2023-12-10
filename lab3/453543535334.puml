@@ -1,0 +1,200 @@
+@startuml
+scale max 4000 width
+class lab3.Main {
++static void main(String[] args)
+}
+lab3.Main --down[#AAA]-o lab3.objects.Money
+lab3.Main -down[#AAA]--o lab3.Products.Shares
+lab3.Main -down[#AAA]-o lab3.objects.Stall
+lab3.Main -down[#AAA]--o lab3.Products.Fruits
+lab3.Main -down[#AAA]-o lab3.Products.Vegetables
+lab3.Main -down[#AAA]--o lab3.places.OnTheStreet
+lab3.Main -down[#AAA]-o lab3.Products.NewsPapers
+lab3.Main --down[#AAA]-o lab3.places.StockMarket
+lab3.Main -down[#AAA]--o lab3.places.ProductMarket
+lab3.Main -down[#AAA]-o lab3.Persons.Buyers
+lab3.Main -down[#AAA]-o lab3.Persons.MainHero
+lab3.Main --down[#AAA]-o lab3.Persons.TraderShares
+lab3.Main -down[#AAA]--o lab3.Persons.TraderFructs
+
+enum lab3.Town {
+DAVILON("Давилон"),BREKHENVIL("Брекхенвиль"), GRABENBERG("Грабенберг"),SAN_KOMARIK("Сан-Комарик")
+-final String name
+Town(String name)
++String getName()
+}
+
+
+class lab3.Products.Fruits extends lab3.Products.Products {
++Fruits(String name)
+}
+
+
+class lab3.Products.NewsPapers extends lab3.Products.Products {
++NewsPapers(String name)
+}
+
+
+abstract class lab3.Products.Products {
+#String name
++String toString()
++int hashCode()
++boolean equals(Object obj)
++String getName()
+}
+
+
+class lab3.Products.Shares extends lab3.Products.Products implements lab3.interfaces.Fallable {
+#String name
++Shares(String name)
++String toString()
++String fall(int income)
++String nameCost()
+}
+
+
+class lab3.Products.Vegetables extends lab3.Products.Products {
++Vegetables(String name)
+}
+
+
+abstract class lab3.places.Market extends lab3.places.Places {
++Market(String name, PlacesType location)
+}
+
+
+class lab3.places.OnTheStreet extends lab3.places.Places {
++OnTheStreet(String name,PlacesType location)
+}
+
+
+abstract class lab3.places.Places implements lab3.interfaces.Beable {
+#String name
+#PlacesType location
++Places(String name, PlacesType location)
++String toString()
++int hashCode()
++boolean equals(Object obj)
++void check(Places obj, Places obj1)
++void be(Places place)
++String getName()
+}
+
+
+enum lab3.places.PlacesType {
+MARKET,STOCKMARKET,ONTHESTREET
+}
+
+
+class lab3.places.ProductMarket extends lab3.places.Market implements lab3.interfaces.Tradable {
+#Products product
++ProductMarket(String name, Products product)
++void trade(Products products)
++Products getProducts()
+}
+
+
+class lab3.places.StockMarket extends lab3.places.Market implements lab3.interfaces.Tradable {
++StockMarket(String name)
++void trade(Products products)
+}
+
+
+class lab3.Persons.Buyers extends lab3.Persons.Person {
++Buyers(String name, String alternative, Places places)
++String scream(Products product)
++void wantBuy()
++void remains(Person name,String charact,String k)
+}
+
+
+class lab3.Persons.MainHero extends lab3.Persons.Person implements lab3.interfaces.Locateable, lab3.interfaces.Earnable {
+-int counter = 0
++MainHero(String name, String alternativeName, Places places)
++void earn(int count, Money obj)
++String wasGoingTo(Shares obj,int income)
++String getNameOrPronoun()
++void estimate()
++void underst(String obj)
+}
+
+
+abstract class lab3.Persons.Person implements lab3.interfaces.Locateable {
+#String name
+#String alternativeName
+#Places places
++Person(String name, String alternativeName, Places places)
++String remember(String word, String what)
++String locate(String need,int income ,boolean gp, String location, Places places, Products product)
++void attention(NewsPapers obj,String word ,String what)
++String toString()
++int hashCode()
++boolean equals(Object obj)
++void can(String move,boolean pb, String charasteristic)
++String need()
+}
+
+
+class lab3.Persons.TraderFructs extends lab3.Persons.Person implements lab3.interfaces.Tradable {
++TraderFructs(String name,String alternative, Places location)
++void trade(Products products)
++String sell()
++void spreadOut(Vegetables product, Stall place)
+}
+
+
+class lab3.Persons.TraderShares extends lab3.Persons.Person implements lab3.interfaces.Tradable,lab3.interfaces.Carryable {
++TraderShares(String name,String alternative,Places location)
++void trade(Products tovars)
++void carry(Products obj)
++String scream(Shares shares)
++String sell()
+}
+
+
+class lab3.objects.Money {
+-final String name
++String toString()
++Money(String name)
++String getName()
+}
+
+
+class lab3.objects.Stall {
+-final String name
++Stall(String name)
++String toString()
+}
+
+
+interface lab3.interfaces.Beable {
+void be(Places places)
+}
+
+
+interface lab3.interfaces.Carryable {
+void carry(Products obj)
+}
+
+
+interface lab3.interfaces.Earnable {
+void earn(int count, Money obj)
+}
+
+
+interface lab3.interfaces.Fallable {
+default String fall(int income)
+}
+
+
+interface lab3.interfaces.Locateable {
+default String locate(String need,int income, boolean gp, String location, Places places, Products product)
+}
+
+
+interface lab3.interfaces.Tradable {
+void trade(Products tovars)
+}
+
+
+@enduml
