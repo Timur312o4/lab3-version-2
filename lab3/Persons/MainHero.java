@@ -1,4 +1,6 @@
 package lab3.Persons;
+import lab3.Products.NewsPapers;
+import lab3.Products.Products;
 import lab3.interfaces.Earnable;
 import lab3.interfaces.*;
 import lab3.objects.Money;
@@ -6,7 +8,7 @@ import lab3.places.Places;
 import lab3.Products.Shares;
 
 public class MainHero extends Person implements Locateable, Earnable {
-    private int counter = 0;
+    private int counter;
 
     public MainHero(String name, String alternativeName, Places places) {
         super(name, alternativeName, places);
@@ -24,7 +26,7 @@ public class MainHero extends Person implements Locateable, Earnable {
     public String wasGoingTo(Shares obj,int income) {
         counter++;
         if (income >= 10000) {
-            return getNameOrPronoun() + "не собирался " + "покупать, так как" + obj.fall(income);
+            return getNameOrPronoun() + " не собирался " + "покупать "+ obj+", так как " + obj.fall(income);
         }else {
             return getNameOrPronoun() + " собирался скупить "+obj+" " + obj.fall(income);
         }
@@ -38,6 +40,11 @@ public class MainHero extends Person implements Locateable, Earnable {
             return alternativeName;
         }
     }
+    public void attention(NewsPapers newsPapers,See see) {
+        System.out.println("Обратив внимание на " + newsPapers + " ");
+        see.seeAction(newsPapers); // Пример параметров Shares и income
+    }
+
     public void estimate() {
         System.out.println(this.name + " " + "начал прикидывать в уме ");
     }
@@ -48,5 +55,4 @@ public class MainHero extends Person implements Locateable, Earnable {
             System.out.println("осознал " + obj);
         }
     }
-
 }
