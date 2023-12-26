@@ -21,7 +21,7 @@ public class StockMarket extends Market implements Tradable {
                 System.out.println(this + " Отличается от " + obj + "потому что это " + obj.getName() + " который ничего не продает ");
             }
             } else {
-                System.out.println(this + " они схожи " + obj + "потому что");
+                System.out.println(this + " они схожи " + obj + "потому что"+ obj.getName()+" тоже продаёт акции");
         }
     }
     @Override

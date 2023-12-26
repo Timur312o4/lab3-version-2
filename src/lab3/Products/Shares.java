@@ -1,10 +1,11 @@
 package lab3.Products;
 import lab3.interfaces.*;
 public class Shares extends Products implements Fallable {
-    protected String name;
-
+    public  Shares(){
+        super("акции");
+    }
     public Shares(String name) {
-        this.name = name;
+        super(name);
     }
 
     @Override

@@ -1,15 +1,13 @@
 package lab3.Persons;
 
 import lab3.Products.Shares;
-import lab3.interfaces.Earnable;
 import lab3.interfaces.Tradable;
 import lab3.places.Places;
 import lab3.interfaces.Carryable;
-import lab3.objects.*;
 import lab3.Products.*;
 
 public class TraderShares extends Person implements Tradable,Carryable{
-    public TraderShares(String name,String alternative,Places location) {
+    public TraderShares(String name, String alternative, Places location) {
         super(name,alternative,location);
     }
     @Override

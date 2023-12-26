@@ -15,13 +15,13 @@ public class ProductMarket extends Market implements Tradable{
     }
     public void check(Places obj) {
         if (!this.equals(obj)) {
-            if (obj instanceof ProductMarket) {
-                System.out.println(this + " Отличается от " + obj + "потому что это" + obj.getName() + "который продает фрукты");
+            if (obj instanceof StockMarket) {
+                System.out.println(this + " Отличается от " + obj + "потому что это" + obj.getName() + ",который продает акции");
             }else if(obj instanceof OnTheStreet){
-                System.out.println(this + " Отличается от " + obj + "потому что это" + obj.getName() + "который ничего не продает ");
+                System.out.println(this + " Отличается от " + obj + "потому что это" + obj.getName() + ",который ничего не продает ");
             }
         } else {
-            System.out.println(this + " они схожи " + obj + "потому что");
+            System.out.println(this + " они схожи " + obj + "потому что"+obj+"продавать овощи и фрукты");
         }
     }
     @Override

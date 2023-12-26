@@ -5,6 +5,7 @@ import lab3.objects.Stall;
 import lab3.places.*;
 import lab3.interfaces.Tradable;
 import lab3.Products.Products;
+
 public class TraderFructs extends Person implements Tradable{
     public TraderFructs(String name,String alternative, Places location){
         super(name,alternative,location);

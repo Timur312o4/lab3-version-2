@@ -1,7 +1,12 @@
 package lab3.Products;
-public abstract class Products {
+public class Products {
     protected String name;
+    public Products(){
 
+    }
+    public Products(String name){
+        this.name=name;
+    }
     @Override
     public String toString() {
         return (name + " ");
@@ -20,9 +25,11 @@ public abstract class Products {
             return false;
         }
         Products product = (Products) obj;
-        return name.equals(product.name);
+        return this.name.equals(product.name);
     }
-
+    public void setName(String name){
+        this.name=name;
+    }
     public String getName() {
         return name;
     }

@@ -2,10 +2,9 @@ package lab3.Persons;
 
 import lab3.Products.Products;
 import lab3.interfaces.Locateable;
-import lab3.Products.NewsPapers;
 import lab3.places.*;
 
-public abstract class Person implements Locateable {
+public class Person implements Locateable {
     protected String name;
     protected String alternativeName;
     protected Places places;
@@ -27,22 +26,12 @@ public abstract class Person implements Locateable {
             }
         }
     }
-
-    public String remember(String word, String what) {
-        if (word.equals("что")) {
-            return name + " вспомнил, что" + what;
-        } else {
-            if (word.equals("про")) {
-                return name + " вспомнил про" + what;
-            } else {
-                return name + " вспомнил " + what;
-            }
-        }
+    public String getName(){
+        return this.name;
     }
-    public void attention(NewsPapers obj, String word, String what) {
-        System.out.println("Обратив внимание на " + obj + " " + remember(word, what));
+    public void setName(String name){
+        this.name=name;
     }
-
     @Override
     public String toString() {
         return this.name + " ";

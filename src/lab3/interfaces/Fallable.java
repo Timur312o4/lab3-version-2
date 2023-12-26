@@ -1,10 +1,10 @@
 package lab3.interfaces;
 
 public interface Fallable {
-    default String fall(int income){
-        if (income<10000){
+    default String fall(int income) {
+        if (income < 10000) {
             return "упали";
-        }else {
+        } else {
             return "возрасли";
         }
     }

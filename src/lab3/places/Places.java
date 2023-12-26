@@ -28,7 +28,7 @@ public abstract class Places implements Beable {
         if (obj==null){
             return false;
         }
-        if (getClass() != obj.getClass()){
+        if (this.getClass() != obj.getClass()){
             return false;
         }
         Places places = (Places) obj;
@@ -42,5 +42,8 @@ public abstract class Places implements Beable {
 
     public String getName() {
         return this.name;
+    }
+    public void setName(String name){
+        this.name=name;
     }
 }

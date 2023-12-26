@@ -36,7 +36,7 @@ public class Main {
         TraderShares traderShares = new TraderShares("продавец акций","м",sharesMarket);
         TraderFructs traderFructs = new TraderFructs("продавец фруктов или овощей","м",productMarket);
 
-        mainHero.attention(newspaper,"что"," "+mainHero.wasGoingTo(shares,income));
+        mainHero.attention(new NewsPapers(), see -> System.out.println("вспомнил, что " + mainHero.wasGoingTo(shares,income)));
         mainHero.estimate();
         mainHero.earn(income,money);
         mainHero.underst(mainHero.locate(mainHero.need(),income, false, Town.BREKHENVIL.getName(), sharesMarket, shares));
