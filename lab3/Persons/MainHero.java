@@ -42,7 +42,7 @@ public class MainHero extends Person implements Locateable, Earnable {
     }
     public void attention(NewsPapers newsPapers,See see) {
         System.out.println("Обратив внимание на " + newsPapers + " ");
-        see.seeAction(newsPapers); // Пример параметров Shares и income
+        see.seeAction(newsPapers);
     }
 
     public void estimate() {
