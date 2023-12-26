@@ -36,13 +36,14 @@ public class Main {
         TraderShares traderShares = new TraderShares("продавец акций","м",sharesMarket);
         TraderFructs traderFructs = new TraderFructs("продавец фруктов или овощей","м",productMarket);
 
-        mainHero.attention(newspaper,"что"," "+mainHero.wasGoingTo(shares,income));
+        mainHero.attention(new NewsPapers(), see -> System.out.println("вспомнил, что " + mainHero.wasGoingTo(shares,income)));
         mainHero.estimate();
         mainHero.earn(income,money);
         mainHero.underst(mainHero.locate(mainHero.need(),income, false, Town.BREKHENVIL.getName(), sharesMarket, shares));
         mainHero.underst(mainHero.locate(mainHero.need(),income, true, Town.DAVILON.getName() + ", " + Town.GRABENBERG.getName() + ", " + Town.SAN_KOMARIK.getName(), sharesMarket, shares));//нужно быть в ...
+        sharesMarket.be(sharesMarket);
         sharesMarket.trade(shares);
-        sharesMarket.check(productMarket,sharesMarket);
+        sharesMarket.check(productMarket);
         for (Products item : vegetablesFruits) {
             productMarket.trade(item);
         }
